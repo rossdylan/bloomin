@@ -26,7 +26,7 @@ follows:
     (:require '[[bloomin.core :as bloomin]
                 [bloomin.sbs :as sbs]]))
 
-(def bf (bloomin/new-bloom-filter sbs/sbs-bfs 0.99 1000)
+(def bf (bloomin/new-bloom-filter sbs/sbs-bfs 0.01 1000)
 (def names ["mike", "eric", "sarah", "kimberly", "max", "alex", "emma", "lucy"]
 
 
