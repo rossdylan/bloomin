@@ -6,7 +6,7 @@
 ; setup some constants for xxhash
 (def ^:private xxseed 0x88fd9d5c334adc)
 
-(def ^:private xxhasher (.hash64 (XXHashFactory/fastestInstance)))
+(def ^:private xxhasher (.hash32 (XXHashFactory/fastestInstance)))
 
 (defn- xx-hash
   "Run the xxhash function on the given data"
@@ -22,7 +22,7 @@
 
 (defn- single-hash
   "Single hash function. A single hash is a combination of our 2 hash functions.
-  The algorithm is as follows: hash1(data) + (i * hash2(data) + l. i is the index
+  The algorithm is as follows: (hash1(data) + (i * hash2(data)) % l. i is the index
   of this hash, l is the length of the length of the bloom filter."
   [i l d]
   (mod (+ (murmur-hash d) (* i (xx-hash d))) l))

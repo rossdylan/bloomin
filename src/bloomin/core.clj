@@ -38,7 +38,7 @@
      :hashes (optimal-hashes entries size)
      :error err
      :entries entries
-     :bfs ((resolve bfs-func) entries err)}))
+     :bfs (bfs-func entries err)}))
 
 
 (defn bf-insert

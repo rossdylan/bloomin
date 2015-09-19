@@ -8,7 +8,7 @@
 (defrecord SBSBloomFilterStore [^SparseBitSet sbs]
   bloom/BloomFilterStore
     (bfsInsert [this indices]
-      (map (fn [i] (.set sbs i true)) indices))
+      (dorun (map (fn [i] (.set sbs i true)) indices)))
     (bfsExists? [this indices]
       (every? true? (map (fn [i] (.get sbs i)) indices)))
     (bfsClear [this] (.clear sbs)))
