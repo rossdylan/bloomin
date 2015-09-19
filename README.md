@@ -1,4 +1,5 @@
 # bloomin
+[![Clojars Project](http://clojars.org/bloomin/latest-version.svg)](http://clojars.org/bloomin)
 
 A Clojure library that creates a common abstraction for bloom filters.
 Provides a single implementation that uses com.zaxxer.sparsebits to provide a
